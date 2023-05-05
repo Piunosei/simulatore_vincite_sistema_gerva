@@ -79,25 +79,25 @@ check=0;
 			if(j[0]==0){
 				tipologia_giocata=1;
 				j[0]=1;	
-				fondo_cassa=fondo_cassa+2*puntata;	
+				fondo_cassa=fondo_cassa+puntata;	
 			}else if(j[0]==1){
 				tipologia_giocata=1;
 				j[0]=0;	
-				fondo_cassa=fondo_cassa+2*puntata;
+				fondo_cassa=fondo_cassa+puntata;
 				puntata=puntata*2;	
 			}
 				
 			check=1;
 		}else if(k[0]==1 && k[1]==0 && k[2]==0 && tipologia_giocata==0 && check==0){
    			k[1]=0;
-			fondo_cassa=fondo_cassa+2*puntata;
+			fondo_cassa=fondo_cassa+puntata;
 			puntata=1;
 			tipologia_giocata=0;	
 			check=1;	
 		}else if(k[0]==1 && k[1]==1 && k[2]==0 && tipologia_giocata==0 && check==0){
    			k[0]=0;
 			k[1]=0;
-			fondo_cassa=fondo_cassa+2*puntata;
+			fondo_cassa=fondo_cassa+puntata;
 			puntata=1;
 			tipologia_giocata=0;
 			check=1;
