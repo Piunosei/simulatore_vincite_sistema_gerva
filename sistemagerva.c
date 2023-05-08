@@ -5,7 +5,7 @@
 void main(){
 
 int under_over;
-int percentuale=66;
+int percentuale=50;
 int tipologia_giocata=0;
 long long int puntata=1;
 long long int fondo_cassa;
@@ -51,16 +51,26 @@ check=0;
 				k[0]=1;
 				fondo_cassa=fondo_cassa-puntata;
 				puntata=2;
-			}else if(tipologia_giocata==1 && j[0]==0){
+				check=1;
+			}else if(tipologia_giocata==1 && j[0]==0 && check==0){
 				fondo_cassa=fondo_cassa-puntata;
 				tipologia_giocata=0;
-				puntata=1;				
-			}else if(tipologia_giocata==1 && j[0]==1){
+				
+				check=1;
+				if(puntata==1){
+					puntata=2;
+					k[0]=1;	
+				}else{
+					puntata=1;			
+				}
+					
+			}else if(tipologia_giocata==1 && j[0]==1 && check==0){
 				fondo_cassa=fondo_cassa-puntata;
 				j[0]=0;	
 				tipologia_giocata=1;			
+				check=1;
 			}
-			check=1;
+			
 		}else if(k[0]==1 && k[1]==0 && k[2]==0 && tipologia_giocata==0 && check==0){
 			tipologia_giocata=0;
    			k[1]=1;
@@ -73,6 +83,7 @@ check=0;
 			k[1]=0;
 			fondo_cassa=fondo_cassa-puntata;
 			puntata=1;
+			check=1;
 		}		
 	}else if (under_over>percentuale){//vinci//pareggi
 		if(k[0]==0 && k[1]==0 && k[2]==0 && check==0){
@@ -85,11 +96,12 @@ check=0;
 				j[0]=0;	
 				fondo_cassa=fondo_cassa+puntata;
 				puntata=puntata*2;	
+							
 			}
-				
-			check=1;
+			check=1;	
+			
 		}else if(k[0]==1 && k[1]==0 && k[2]==0 && tipologia_giocata==0 && check==0){
-   			k[1]=0;
+   			k[0]=0;
 			fondo_cassa=fondo_cassa+puntata;
 			puntata=1;
 			tipologia_giocata=0;	
